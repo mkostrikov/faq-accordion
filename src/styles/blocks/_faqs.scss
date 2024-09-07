@@ -52,6 +52,10 @@
   }
 
   @include t.breakpoint(s) {
+    & {
+      gap: 32px;
+    }
+
     &::before {
       block-size: 40px;
       inline-size: 40px;
