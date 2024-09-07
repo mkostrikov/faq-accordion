@@ -1,0 +1,55 @@
+@use "../tools" as t;
+
+.b-faqs {
+  --light-pink: hsl(275, 100%, 97%);
+  --white: hsl(0, 0%, 100%);
+  --pink: hsl(281, 83%, 54%);
+  --dark-purple: hsl(292, 42%, 14%);
+
+  padding: 24px;
+  box-shadow: 0 32px 56px 0 rgba(80, 0, 118, 0.1);
+  background: var(--white);
+  border-radius: 8px;
+  display: grid;
+  grid-template-columns: auto auto minmax(0, 1fr);
+  align-items: center;
+  gap: 24px;
+
+  &::before {
+    content: "";
+    mask-image: url('data:image/svg+xml,<svg viewBox="0 0 22 21" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M21.5 10.5a1.48 1.48 0 0 1-.984 1.406l-5.948 2.163-2.162 5.947a1.5 1.5 0 0 1-2.812 0L7.43 14.063l-5.947-2.157a1.5 1.5 0 0 1 0-2.812L7.438 6.93 9.594.984a1.5 1.5 0 0 1 2.812 0l2.163 5.954 5.947 2.156A1.48 1.48 0 0 1 21.5 10.5Z" fill="%23000"/></svg>');
+    block-size: 21px;
+    inline-size: 22px;
+    background-color: #000;
+  }
+
+  &__headline {
+    font-weight: 700;
+    font-size: 32px;
+    color: #000;
+  }
+
+  &__list {
+    grid-column: 1 / -1;
+    display: grid;
+    gap: 1px;
+    background-color: var(--light-pink);
+  }
+
+  &__item {
+    background-color: var(--white);
+    padding: 20px 0;
+  }
+
+  &--theme-pink {
+  }
+
+  &--theme-pink::before {
+    background-color: var(--pink);
+  }
+
+  &--theme-pink &__headline {
+    color: var(--dark-purple);
+
+  }
+}
