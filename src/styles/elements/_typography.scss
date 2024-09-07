@@ -1,5 +1,10 @@
 @use "../tools/" as t;
 
+h1 {
+  font-size: 1px;
+  opacity: 0;
+}
+
 p {
   font-weight: 400;
   font-size: 14px;
