@@ -1,0 +1,73 @@
+@use "../tools" as t;
+
+.b-widget {
+  --pale-purple: hsl(292, 16%, 49%);
+  --dark-purple: hsl(292, 42%, 14%);
+  --pink: hsl(281, 83%, 54%);
+
+  &__header {
+    font-weight: 600;
+    font-size: 16px;
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    text-wrap: balance;
+  }
+
+  &__content {
+    padding: 24px 0 20px;
+  }
+
+  &--theme-purple &__header:focus-visible {
+    outline: 4px solid var(--pale-purple);
+    outline-offset: 15px;
+    border-radius: 8px;
+  }
+
+  &--theme-purple &__header > span {
+    color: var(--dark-purple);
+  }
+
+  &--theme-purple &__header::after {
+    background-color: var(--dark-purple);
+  }
+
+  &--theme-purple[open] &__header::after {
+    background-color: var(--pink);
+  }
+
+  &--theme-purple &__content {
+    color: var(--pale-purple);
+  }
+
+  &--marker-math-circle &__header::after {
+    content: "";
+    mask-image: url('data:image/svg+xml,<svg viewBox="0 0 26 25" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13 .313A12.187 12.187 0 1 0 25.188 12.5 12.2 12.2 0 0 0 13 .312Zm4.688 13.124H8.313a.938.938 0 0 1 0-1.874h9.374a.938.938 0 0 1 0 1.874Z" fill="%23000"/></svg>');
+    mask-repeat: no-repeat;
+    mask-position: center;
+    block-size: 25px;
+    inline-size: 25px;
+  }
+
+  &--marker-math-circle[open] &__header::after {
+    mask-image: url('data:image/svg+xml,<svg viewBox="0 0 26 25" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13 .313A12.187 12.187 0 1 0 25.188 12.5 12.203 12.203 0 0 0 13 .312Zm4.688 13.124h-3.75v3.75a.938.938 0 0 1-1.876 0v-3.75h-3.75a.938.938 0 0 1 0-1.874h3.75v-3.75a.938.938 0 0 1 1.876 0v3.75h3.75a.938.938 0 0 1 0 1.874Z" fill="%23000"/></svg>');
+  }
+
+  @media (hover: hover) {
+    &__header:hover {
+      cursor: pointer;
+    }
+
+    &--theme-purple &__header:hover > span {
+      color: var(--pink);
+    }
+  }
+
+  @media (hover: none) {
+    &--theme-purple &__header:active > span {
+      color: var(--pink);
+    }
+  }
+}
